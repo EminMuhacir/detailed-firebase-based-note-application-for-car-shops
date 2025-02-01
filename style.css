@@ -319,8 +319,6 @@ main {
   justify-content: center;
 }
 
-/* TODO : Burdan devam edilcek sağ ve sola yeni bilgiler ekleyip salı günü verilcek */
-
 .modal-body {
   display: flex;
   flex-direction: column;
