@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öner Oto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- font awsome -->
+    <script src="https://kit.fontawesome.com/bf0fb16311.js" crossorigin="anonymous"></script>
+    <style>
+        .modal-body {
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="noteId" hidden></p>
+    <header>
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass" style="color:white ;"></i>
+            <input type="text" class="search-input" placeholder="Arama">
+        </div>
+    </header>
+    <main>
+        <ul class="notes"></ul>
+    </main>
+    <button class="add-btn" id="add-btn" aria-label="Create note" onclick="openModal()"><i
+            class="add-icon"></i></button>
+    <div class="modal">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <button class="icon-btn back-icon" id="close-btn" aria-label="Close button" onclick="closeModal()"><i
+                        class="fa-solid fa-backward" style="color: white;"></i></button>
+                <button class="save-btn" id="save-btn" aria-label="Save button" form="form">Kaydet</button>
+            </div>
+            <form class="modal-body" id="form">
+                <div id="div-input-plaka">
+                    <div style="color: white;">
+                        <h3>Zübeyir Öner <br> 0531 846 36 92</h3>
+                    </div>
+                    <input id="input-plaka" class="title-field" style="font-size: 1.3rem;" type="text"
+                        placeholder="Plaka">
+                    <div style="color: white;">
+                        <i class="fa-brands fa-instagram"></i> ONERDEYİZ<br>
+                        <i class="fa-brands fa-facebook" style="color: #ffffff;"></i> ZÜBEYİR ÖNER<br>
+                        <i class="fa-regular fa-envelope" style="color: #ffffff;"></i> ONERZUBEYİR@GMAİL.COM
+                    </div>
+                </div>
+                <div class="modal-div">
+                    <table class="modal-div-table">
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-relative">
+                                    <label for="Fname"> Müşteri İsmi: </label>
+                                    <input id="customerName" type="text" class="title-field deneme" required>
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Müşteri Tel: </label>
+                                    <input id="customerPhone" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Tc Kimlik No:</label>
+                                    <input id="identity" type="text" class="title-field">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Eksper Ad Soyad: </label>
+                                    <input id="expertName" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Eksper Tel No: </label>
+                                    <input id="expertPhone" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Eksper Email Adresi: </label>
+                                    <input id="expertMail" type="text" class="title-field">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Poliçe Nosu: </label>
+                                    <input id="policeNo" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Hasar Dosya No: </label>
+                                    <input id="folderNo" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Geldiği Tarih: </label>
+                                    <input id="time" type="text" class="title-field">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-relative">
+                                    <label for="Fname"> Araba Markası: </label>
+                                    <input id="marka" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Araba Modeli: </label>
+                                    <input id="model" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Araba Motoru: </label>
+                                    <input id="motor" type="text" class="title-field">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Araba Şasisi: </label>
+                                    <input id="sasi" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Sigorta Şirketi: </label>
+                                    <input id="insuranceCompany" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Sigorta Şirketi No: </label>
+                                    <input id="insuranceCompanyPhone" type="text" class="title-field">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> İban Numarası: </label>
+                                    <input id="ibanNo" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Banka Adı: </label>
+                                    <input id="bankName" type="text" class="title-field">
+                                </div>
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <div class="display-relative">
+                                    <label for="Fname"> Hasar Dosya No: </label>
+                                    <input id="branchName" type="text" class="title-field">
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-div">
+                    <table class="modal-div-table">
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                Parça Bilgileri
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                Parça No
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                Adet
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                Fiyatı
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi1" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo1" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet1" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat1" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi2" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo2" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet2" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat2" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi3" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo3" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet3" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat3" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi4" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo4" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet4" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat4" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi5" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo5" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet5" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat5" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi6" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo6" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet6" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat6" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi7" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo7" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet7" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat7" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi8" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo8" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet8" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat8" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi9" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo9" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet9" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat9" class="input-table">
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="parcaBilgi10" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaNo10" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaAdet10" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th">
+                                <input type="text" id="parcaFiyat10" class="input-table">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-div">
+                    <table class="modal-div-table">
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th" style="width: 50%;">
+                                <label for="">Araçla İlgili Şikayetler:</label>
+
+                            </th>
+                            <th class="modal-div-table-tr-th" style="width: 50%;">
+
+                                <label for="">İşçilik Bilgileri:</label>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+
+                                <input type="text" id="report1" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Kaporta İşçiliği:</label>
+                                    <input type="text" id="info1" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report2" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Boya İşçiliği:</label>
+                                    <input type="text" id="info2" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report3" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Meges İşçiliği:</label>
+                                    <input type="text" id="info3" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report4" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Mekanik İşçiliği:</label>
+                                    <input type="text" id="info4" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report5" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Elektirik İşçiliği:</label>
+                                    <input type="text" id="info5" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report6" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Cam+Macun İşçiliği:</label>
+                                    <input type="text" id="info6" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report7" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Döşeme İşçiliği:</label>
+                                    <input type="text" id="info7" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report8" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Röt-Balans:</label>
+                                    <input type="text" id="info8" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report9" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Klima İşçiliği:</label>
+                                    <input type="text" id="info9" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report10" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Cam-Kriko Tamiri:</label>
+                                    <input type="text" id="info10" class="input-table">
+                                </div>
+                            </th>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report11" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Kilit Tamiri:</label>
+                                    <input type="text" id="info11" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr class="modal-div-table-tr">
+                            <th class="modal-div-table-tr-th ">
+                                <input type="text" id="report12" class="input-table">
+                            </th>
+                            <th class="modal-div-table-tr-th ">
+                                <div class="display-flex">
+                                    <label for="Fname">Toplam Tutar:</label>
+                                    <input type="text" id="info12" class="input-table">
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <button class="icon-btn delete-icon" id="delete-btn" aria-label="Delete button"><i class="fa-solid fa-trash"
+                    style="color: black; font-size: 22px;"></i></button>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
